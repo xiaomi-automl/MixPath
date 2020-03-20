@@ -20,6 +20,7 @@ from itertools import combinations
 import collections
 import torchvision.datasets as dset
 import torch.backends.cudnn as cudnn
+from tqdm import tqdm
 
 
 @torch.no_grad()
@@ -101,7 +102,7 @@ class MyProblem(Problem):
         self.model.eval()
         all_targets = []
         all_outputs = []
-        for step, (inputs, targets) in enumerate(self.valid_queue):
+        for step, (inputs, targets) in tqdm(enumerate(self.valid_queue), total=len(self.valid_queue)):
             inputs, targets = inputs.to(self.device), targets.to(self.device)
             all_targets.append(targets)
             outputs = self.model(inputs, choice)
