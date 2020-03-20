@@ -1,4 +1,6 @@
 # Finish the MixPath
+To finish the MixPath code
+
 limingyao@ainirobot.com
 
 Done:
@@ -6,7 +8,7 @@ Done:
 
 TODO:
 - SNPE/OPENVINO's LookupTable
-- plot the pareto_front
+- Plot the pareto_front
 
 
 # MixPath: A Unified Approach for One-shot Neural Architecture Search
