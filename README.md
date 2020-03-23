@@ -1,3 +1,16 @@
+# Finish the MixPath
+To finish the MixPath code
+
+limingyao@ainirobot.com
+
+Done:
+- NSGA-II (use [pymoo](https://pymoo.org))
+
+TODO:
+- SNPE/OPENVINO's LookupTable
+- Plot the pareto_front
+
+
 # MixPath: A Unified Approach for One-shot Neural Architecture Search
 
 This repo provides the supernet of S<sub>1</sub> and our confirmatory experiments on NAS-Bench-101.
