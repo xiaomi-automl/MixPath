@@ -3,12 +3,13 @@ To finish the MixPath code
 
 limingyao@ainirobot.com
 
+Get **95.29%** Accuracy in Cifar10
+
 Done:
 - NSGA-II (use [pymoo](https://pymoo.org))
 
 TODO:
 - SNPE/OPENVINO's LookupTable
-- Plot the pareto_front
 
 
 # MixPath: A Unified Approach for One-shot Neural Architecture Search
