@@ -9,7 +9,7 @@ python S1/eval_search.py \
     --m 4\
     --data_dir ~/.torch/datasets \
     --model_path ./super_train/experiment_name/super_train_states.pt.tar\
-    --batch_size 1000\
-    --n_generations 200\
+    --batch_size 500\
+    --n_generations 40\
     --pop_size 40\
     --n_offsprings 10

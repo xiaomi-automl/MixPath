@@ -87,7 +87,7 @@ class MyProblem(Problem):
         for i in range(num_pop):
             choice = self.intarray2choice(x[i])
             acc = self.get_accuracy(choice)
-            f1[i] = 1.0 - acc
+            f1[i] = 100.0 - acc
             para_amount = self.get_para_amount(choice)
             f2[i] = - para_amount
             latency = self.get_latency(choice)
@@ -102,7 +102,8 @@ class MyProblem(Problem):
         self.model.eval()
         all_targets = []
         all_outputs = []
-        for step, (inputs, targets) in tqdm(enumerate(self.valid_queue), total=len(self.valid_queue)):
+        #for step, (inputs, targets) in tqdm(enumerate(self.valid_queue), total=len(self.valid_queue)):
+        for step, (inputs, targets) in enumerate(self.valid_queue):
             inputs, targets = inputs.to(self.device), targets.to(self.device)
             all_targets.append(targets)
             outputs = self.model(inputs, choice)
