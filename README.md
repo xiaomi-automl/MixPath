@@ -7,6 +7,7 @@ Get **95.29%** Accuracy in Cifar10
 
 Done:
 - NSGA-II (use [pymoo](https://pymoo.org))
+- Plot the result
 
 TODO:
 - SNPE/OPENVINO's LookupTable
