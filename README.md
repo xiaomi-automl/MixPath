@@ -4,9 +4,11 @@ To finish the MixPath code
 limingyao@ainirobot.com
 
 ![plot the result 3d](super_train/search_cifar/res_high_tradeoff.png)
+
 result of search, f1: Accuracy, f2: parameter amount, f3: GPU latency
 
 ![plot the result 2d](super_train/search_cifar/res_high_tradeoff_acc_latency.png)
+
 result of search, f1: Accuracy, f2: GPU latency
 
 
