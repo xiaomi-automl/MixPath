@@ -3,6 +3,8 @@ To finish the MixPath code
 
 limingyao@ainirobot.com
 
+![plot the result](super_train/search_cifar/res_high_tradeoff.png)
+
 Done:
 - NSGA-II (use [pymoo](https://pymoo.org))
 - Plot the result
