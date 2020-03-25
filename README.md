@@ -3,6 +3,38 @@ To finish the MixPath code
 
 limingyao@ainirobot.com
 
+Done:
+- NSGA-II (use [pymoo](https://pymoo.org))
+- Plot the result
+
+TODO:
+- SNPE/OPENVINO's LookupTable
+
+## Cifar
+### run
+**Train**
+```python
+python S1/train_search.py \
+    --exp_name experiment_name \
+    --m 4\
+    --data_dir ~/.torch/datasets \
+    --seed 2020
+```
+**Search**
+```python
+python S1/eval_search.py \
+    --exp_name search_cifar\
+    --m 4\
+    --data_dir ~/.torch/datasets \
+    --model_path ./super_train/experiment_name/super_train_states.pt.tar\
+    --batch_size 500\
+    --n_generations 40\
+    --pop_size 40\
+    --n_offsprings 10
+```
+
+### Result
+
 ![plot the result 3d](super_train/search_cifar/res_high_tradeoff.png)
 
 result of search, f1: Accuracy, f2: parameter amount, f3: GPU latency
@@ -11,13 +43,6 @@ result of search, f1: Accuracy, f2: parameter amount, f3: GPU latency
 
 result of search, f1: Accuracy, f2: GPU latency
 
-
-Done:
-- NSGA-II (use [pymoo](https://pymoo.org))
-- Plot the result
-
-TODO:
-- SNPE/OPENVINO's LookupTable
 
 
 ## Accuracy 
