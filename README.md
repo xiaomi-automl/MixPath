@@ -5,7 +5,7 @@ This repo provides the supernet of S<sub>1</sub> and our confirmatory experiment
 
 ## 招聘 We Are Hiring！
 
-Dear DL folks, we are opening several precious positions both for professionals and interns avid in AutoML/NAS, please send your resume/cv to zhangbo11@xiaomi.com. 全职/实习生申请投递至前述邮箱。  
+Dear DL folks, we are opening several precious positions based in Beijing both for professionals and interns avid in AutoML/NAS, please send your resume/cv to zhangbo11@xiaomi.com. 全职/实习生申请投递至前述邮箱。  
 
 ## Requirements
 
