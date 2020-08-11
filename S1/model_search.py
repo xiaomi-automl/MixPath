@@ -50,6 +50,29 @@ class Inverted_Bottleneck(nn.Module):
                 self.mix_bn.append(nn.BatchNorm2d(outplanes))
             del bn_list
 
+    def get_submodule(self, choice) -> nn.ModuleList:
+        # choice: {'conv', 'rate'}
+        conv_ids = choice['conv']  # conv_ids, e.g. [0], [1], [2], [0, 1], [0, 2], [1, 2], [0, 1, 2]
+        m_ = len(conv_ids)  # num of selected paths
+        rate_id = choice['rate']  # rate_ids, e.g. 0, 1
+        assert m_ in [1, 2, 3, 4]
+        assert rate_id in [0, 1]
+
+        submodule = nn.ModuleList()
+        submodule.append( self.pw[rate_id] )
+        if m_ == 1:
+            submodule.append(self.mix_conv[rate_id][conv_ids[0]])
+        else:
+            for id in conv_ids:
+                submodule.append(self.mix_conv[rate_id][id])
+        # pw
+        submodule.append(self.pw_linear[rate_id])
+        if self.shadow_bn:
+            submodule.append( self.mix_bn[rate_id][m_ - 1])
+        else:
+            submodule.append(self.mix_bn[rate_id])
+        return submodule
+
     def forward(self, x, choice):
         # choice: {'conv', 'rate'}
         conv_ids = choice['conv']  # conv_ids, e.g. [0], [1], [2], [0, 1], [0, 2], [1, 2], [0, 1, 2]
@@ -127,6 +150,13 @@ class SuperNetwork(nn.Module):
                 init_range = 1.0 / math.sqrt(n)
                 m.weight.data.uniform_(-init_range, init_range)
                 m.bias.data.zero_()
+
+    def get_submodule(self, choice) -> nn.ModuleList:
+        submodule = nn.ModuleList(
+            [self.stem, self.last_conv,self.global_pooling, self.classifier ])
+        for i in range(self.layers):
+            submodule.extend( self.Inverted_Block[i].get_submodule(choice[i]) )
+        return submodule
 
     def forward(self, x, choice=None):
         x = self.stem(x)
